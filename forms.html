@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracking Page</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">  
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+   
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<script src="https://gumroad.com/js/gumroad.js"></script>
+    
+  </head>
+  <body>
+<center>    <img src="http://ssccglpinnacle.com/wp-content/uploads/2016/05/Pinnacle-Logo.jpg">  </center>
+    
+    <form class="main" id="form" novalidate="novalidate" style="max-width: 480px;margin: 40px auto;">
+      <div id="forminner">
+        <div class="row">
+          <div class="file-field input-field col s12">
+            <h5 class="left-align teal-text"> All India Open Challenge Response Sheet Tracking</h5>
+            <div class="input-field col s6">
+              <input id="trackingId" type="text">
+              <label for="rollno">Mobile Number</label>
+            </div>
+          </div>
+          
+          
+          
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s6">
+            <button class="waves-effect waves-light btn submit-btn" type="submit" onclick="submitForm(); return false;">Submit</button>
+          </div>   
+        </div>
+        <div class="row">
+          <div class="input-field col s12" id = "progress">
+          </div>
+        </div>
+      </div>
+      
+      
+      <div id="success" style="display:none">
+        <h5 class="left-align teal-text" id="tid"></h5>
+        <p id="status"></p>
+      </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+    <script>
+       function showSuccess(email) {
+          $('#tid').text('Examination status for '+$('input#trackingId').val());
+          var div = document.getElementById('status');
+          div.innerHTML = email;
+          $('#forminner').hide();
+          $('#success').show();
+      }
+      
+        function submitForm() {
+        var mobile=$("#mobileno").val();
+        var no=/^[0-9]+$/;
+    
+        
+ 
+       var papermobile = "C901"+$('input#trackingId').val(); 
+       //alert(papermobile);
+
+        showMessage("Tracking your examination ...");
+        google.script.run
+            .withSuccessHandler(showSuccess)
+            .trackExamination(papermobile);
+      
+   }
+      
+       function showError(e) {
+        $('#progress').addClass('red-text').html(e);
+      }
+
+      function showMessage(e) {
+        $('#progress').removeClass('red-text').html(e);
+      }
+    
+    </script>
+ 
+      
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
